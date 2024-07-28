@@ -1,0 +1,66 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* My Styles */
+
+/* General */
+
+header {
+  background-color: lightgrey;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+
+  h1 {
+    color: black;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+
+    li {
+      padding: 1rem;
+    }
+  }
+}
+
+.sub-nav {
+  list-style-type: none;
+  display: flex;
+
+  li {
+    padding: 1rem;
+  }
+}
+
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .movie-card {
+    background-color: black;
+    width: 15rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+}
