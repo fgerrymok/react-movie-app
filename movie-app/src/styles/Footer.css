@@ -1,0 +1,13 @@
+footer {
+  background-color: #0f101a;
+  padding: 1rem;
+
+  p {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .footer-logo {
+    font-size: 2rem;
+  }
+}
