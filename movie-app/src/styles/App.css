@@ -21,6 +21,10 @@
 
 /* General */
 
+h3 {
+  color: white;
+}
+
 .sub-nav {
   list-style-type: none;
   display: flex;
