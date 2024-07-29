@@ -9,7 +9,7 @@ function Subnav() {
   useEffect(() => {
     async function generateMovies() {
       const response = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=${API}`
+        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API}`
       );
 
       const data = await response.json();

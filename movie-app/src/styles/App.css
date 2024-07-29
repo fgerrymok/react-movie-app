@@ -1,8 +1,4 @@
-/* @import "./General.css"; */
-/* 
-:root {
-  --background-color: #1f2135;
-} */
+@import "./General.css";
 
 #root {
   max-width: 1920px;
@@ -46,7 +42,7 @@ h3 {
   justify-content: center;
 
   .movie-card {
-    background-color: blue;
+    background-color: var(--background-color);
     width: 15rem;
     margin: 1rem;
     padding: 1rem;
