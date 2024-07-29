@@ -1,0 +1,35 @@
+header {
+  background-color: #0f101a;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+
+  h1 {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .main-nav {
+    list-style-type: none;
+    display: flex;
+
+    li {
+      padding: 1rem;
+      color: white;
+      text-transform: uppercase;
+
+      a {
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: white;
+      }
+
+      a:hover {
+        color: #ffb100;
+        text-decoration: underline;
+      }
+    }
+  }
+}

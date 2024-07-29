@@ -1,7 +1,6 @@
 #root {
-  max-width: 1280px;
+  max-width: 1920px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -22,24 +21,8 @@
 
 /* General */
 
-header {
-  background-color: lightgrey;
-  display: flex;
-  padding: 1rem;
-  align-items: center;
-
-  h1 {
-    color: black;
-  }
-
-  ul {
-    list-style-type: none;
-    display: flex;
-
-    li {
-      padding: 1rem;
-    }
-  }
+h3 {
+  color: white;
 }
 
 .sub-nav {
