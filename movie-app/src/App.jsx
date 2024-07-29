@@ -1,3 +1,4 @@
+import "./styles/Normalize-fwd.css";
 import "./styles/App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
