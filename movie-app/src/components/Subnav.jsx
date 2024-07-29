@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import API from "../utilities/api";
+import callAPI from "../utilities/api";
 
 function Subnav() {
   const [movies, setMovies] = useState([]);
@@ -8,14 +8,8 @@ function Subnav() {
 
   useEffect(() => {
     async function generateMovies() {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${API}`
-      );
-
-      const data = await response.json();
-      const movieData = data.results;
+      const movieData = await callAPI();
       setMovies(movieData);
-      console.log(API);
     }
     generateMovies();
   }, []);
