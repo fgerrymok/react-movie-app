@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "../styles/MovieDetails.css";
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
 function MovieDetails() {
@@ -27,15 +28,18 @@ function MovieDetails() {
           <img
             src={`${baseBackdropUrl}${movie.backdrop_path}`}
             alt={movie.title}
+            className="movie-backdrop"
           />
           <div className="movie-details-content">
             <img
               src={`${basePosterUrl}${movie.poster_path}`}
               alt={movie.title}
             />
-            <h1>{movie.title}</h1>
-            <h2>Release Date: {movie.release_date}</h2>
-            <p>{movie.overview}</p>
+            <div>
+              <h1>{movie.title}</h1>
+              <h2>Release Date: {movie.release_date}</h2>
+              <p>{movie.overview}</p>
+            </div>
           </div>
         </>
       )}
