@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const API = import.meta.env.VITE_MOVIE_API_KEY;
 
 function Subnav() {
@@ -61,6 +62,7 @@ function Subnav() {
               <div className="movie-card" key={movie.id}>
                 <img src={posterUrl} alt={movie.title} />
                 <h3>{movie.title}</h3>
+                <Link to={`moviedetails/${movie.id}`}>More Info</Link>
               </div>
             );
           })}
