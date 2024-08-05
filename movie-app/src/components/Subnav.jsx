@@ -5,7 +5,7 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 function Subnav() {
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState("popular");
-  const baseImgUrl = "http://image.tmdb.org/t/p/w185";
+  const basePosterUrl = "http://image.tmdb.org/t/p/w185";
 
   useEffect(() => {
     async function generateMovies() {
@@ -56,7 +56,7 @@ function Subnav() {
       <div className="movies-container">
         {movies &&
           movies.map((movie) => {
-            const posterUrl = baseImgUrl + movie.poster_path;
+            const posterUrl = basePosterUrl + movie.poster_path;
 
             return (
               <div className="movie-card" key={movie.id}>

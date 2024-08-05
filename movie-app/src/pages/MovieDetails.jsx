@@ -5,6 +5,8 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 function MovieDetails() {
   const id = useParams().id;
   const [movie, setMovie] = useState(null);
+  const baseBackdropUrl = "https://image.tmdb.org/t/p/w1280/";
+  const basePosterUrl = "http://image.tmdb.org/t/p/w185";
 
   useEffect(() => {
     async function getMovie() {
@@ -13,16 +15,28 @@ function MovieDetails() {
       );
       const movieData = await response.json();
       setMovie(movieData);
+      console.log(movieData);
     }
     getMovie();
   }, []);
 
   return (
-    <div class="movie-details">
+    <div className="movie-details-card">
       {movie && (
         <>
-          <h1>{movie.title}</h1>
-          <p>{movie.release_date}</p>
+          <img
+            src={`${baseBackdropUrl}${movie.backdrop_path}`}
+            alt={movie.title}
+          />
+          <div className="movie-details-content">
+            <img
+              src={`${basePosterUrl}${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <h1>{movie.title}</h1>
+            <h2>Release Date: {movie.release_date}</h2>
+            <p>{movie.overview}</p>
+          </div>
         </>
       )}
     </div>
