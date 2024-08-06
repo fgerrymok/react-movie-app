@@ -1,0 +1,16 @@
+h3 {
+  color: black;
+}
+
+.favourites-movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.favourites-movie-card {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: beige;
+  width: 13rem;
+}
