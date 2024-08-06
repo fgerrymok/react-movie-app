@@ -25,15 +25,25 @@ function Subnav() {
     setCategory(category);
   }
 
-  function toggleFavourites(movieTitle) {
-    if (favourites.includes(movieTitle)) {
-      console.log("movie removed from favourites");
-      const newFavourites = favourites.filter((movie) => movie !== movieTitle);
-      console.log(newFavourites);
-      setFavourites(newFavourites);
+  function toggleFavourites(movie) {
+    // if (favourites.includes(movie)) {
+    //   console.log(`${movie.title} removed from favourites`);
+    //   const newFavourites = favourites.filter(
+    //     (favouritesMovie) => favouritesMovie !== movie
+    //   );
+    //   console.log(newFavourites);
+    //   setFavourites(newFavourites);
+    //   localStorage.removeItem(movie.id);
+    // } else {
+    //   console.log(`${movie.title} added to favourites`);
+    //   setFavourites([...favourites, movie]);
+    //   localStorage.setItem(movie.id, movie.title);
+    // }
+
+    if (localStorage.getItem(movie.id) === null) {
+      localStorage.setItem(movie.id, JSON.stringify(movie));
     } else {
-      console.log(`${movieTitle} added to favourites`);
-      setFavourites([...favourites, movieTitle]);
+      localStorage.removeItem(movie.id);
     }
   }
 
@@ -79,10 +89,12 @@ function Subnav() {
                 <Link to={`moviedetails/${movie.id}`}>More Info</Link>
                 <button
                   onClick={() => {
-                    toggleFavourites(movie.title);
+                    toggleFavourites(movie);
                   }}
                 >
-                  Add to Favourites
+                  {localStorage.getItem(movie.id)
+                    ? "Remove From Favourites"
+                    : "Add To Favourites"}
                 </button>
               </div>
             );
