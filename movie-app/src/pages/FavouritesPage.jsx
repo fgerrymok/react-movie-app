@@ -6,11 +6,14 @@ export default function Favourites() {
   const [favourites, setFavourites] = useContext(Context);
   const basePosterUrl = "http://image.tmdb.org/t/p/w185";
   const favouritedMovies = { ...localStorage };
-
   // if favourites state is empty
   // display: you have no favourites
   // if favourites state is not empty
   // iterate through the state array and display each movie
+
+  function removeFromFavourites(movie) {
+    localStorage.removeItem(movie.id);
+  }
 
   return (
     <div>
@@ -37,6 +40,13 @@ export default function Favourites() {
                 alt={movie["title"]}
               />
               <h3>{movie["title"]}</h3>
+              <button
+                onClick={() => {
+                  removeFromFavourites(movie);
+                }}
+              >
+                Remove From Favourites
+              </button>
             </div>
           );
         })}

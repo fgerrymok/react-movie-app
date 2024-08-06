@@ -26,24 +26,16 @@ function Subnav() {
   }
 
   function toggleFavourites(movie) {
-    // if (favourites.includes(movie)) {
-    //   console.log(`${movie.title} removed from favourites`);
-    //   const newFavourites = favourites.filter(
-    //     (favouritesMovie) => favouritesMovie !== movie
-    //   );
-    //   console.log(newFavourites);
-    //   setFavourites(newFavourites);
-    //   localStorage.removeItem(movie.id);
-    // } else {
-    //   console.log(`${movie.title} added to favourites`);
-    //   setFavourites([...favourites, movie]);
-    //   localStorage.setItem(movie.id, movie.title);
-    // }
-
     if (localStorage.getItem(movie.id) === null) {
       localStorage.setItem(movie.id, JSON.stringify(movie));
+      setFavourites([...favourites, movie]);
+      console.log(favourites);
     } else {
       localStorage.removeItem(movie.id);
+      const newFavourites = favourites.filter((iteratedMovie) => {
+        iteratedMovie !== movie;
+      });
+      setFavourites(newFavourites);
     }
   }
 
@@ -92,7 +84,7 @@ function Subnav() {
                     toggleFavourites(movie);
                   }}
                 >
-                  {localStorage.getItem(movie.id)
+                  {favourites.includes(movie) || localStorage.getItem(movie.id)
                     ? "Remove From Favourites"
                     : "Add To Favourites"}
                 </button>
