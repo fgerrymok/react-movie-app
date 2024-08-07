@@ -1,0 +1,21 @@
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .movie-card {
+    background-color: beige;
+    width: 15rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    h3 {
+      color: black;
+    }
+
+    a {
+      color: black;
+    }
+  }
+}

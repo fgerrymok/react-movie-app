@@ -27,25 +27,8 @@ h3 {
   color: white;
 }
 
-.sub-nav {
-  list-style-type: none;
-  display: flex;
-
-  li {
-    padding: 1rem;
-  }
-}
-
-.movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  .movie-card {
-    background-color: var(--background-color);
-    width: 15rem;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 1rem;
-  }
+.favourites-button {
+  width: 3rem;
+  background-color: transparent;
+  border: none;
 }
