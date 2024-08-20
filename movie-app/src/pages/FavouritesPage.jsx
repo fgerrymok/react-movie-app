@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "../styles/Favourites.css";
 import { Context } from "../App";
 
