@@ -6,11 +6,36 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-}
 
-.favourites-movie-card {
-  padding: 1rem;
-  margin: 1rem;
-  background-color: beige;
-  width: 13rem;
+  .favourites-movie-card {
+    width: 15rem;
+    height: 22.5rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    position: relative;
+
+    img {
+      border-radius: 1rem;
+    }
+  }
+
+  .hover-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 400;
+    background-color: beige;
+    height: 100%;
+    border-radius: 1rem;
+
+    h3 {
+      font-size: 2rem;
+      padding: 1rem;
+    }
+  }
+
+  .hover-inactive {
+    display: none;
+  }
 }

@@ -7,8 +7,8 @@ function MovieDetails() {
   const id = useParams().id;
   const [movie, setMovie] = useState(null);
   const [movieIsFavourited, setFavouritedState] = useState(null);
-  const baseBackdropUrl = "https://image.tmdb.org/t/p/w1280/";
-  const basePosterUrl = "http://image.tmdb.org/t/p/w185";
+  const baseBackdropUrl = "https://image.tmdb.org/t/p/original/";
+  const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const favouritedMovies = { ...localStorage };
 
   const notFavouritedSvg = (

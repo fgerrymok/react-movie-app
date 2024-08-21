@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import "../styles/Favourites.css";
 import { Context } from "../App";
+import { Link } from "react-router-dom";
 
 export default function Favourites() {
   const [favourites, setFavourites] = useContext(Context);
+  const [currentHoveredMovieId, setCurrentHoveredMovieId] = useState(null);
   const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const favouritedMovies = { ...localStorage };
   const favouritedSvg = (
@@ -40,20 +42,38 @@ export default function Favourites() {
           const movie = JSON.parse(stringifiedObject);
 
           return (
-            <div key={movie["id"]} className="favourites-movie-card">
+            <div
+              key={movie["id"]}
+              className="favourites-movie-card"
+              onMouseEnter={() => {
+                setCurrentHoveredMovieId(movie.id);
+              }}
+              onMouseLeave={() => {
+                setCurrentHoveredMovieId(null);
+              }}
+            >
               <img
                 src={`${basePosterUrl}${movie["poster_path"]}`}
                 alt={movie["title"]}
               />
-              <h3>{movie["title"]}</h3>
-              <button
-                onClick={() => {
-                  removeFromFavourites(movie);
-                }}
-                className="favourites-button"
+              <div
+                className={
+                  currentHoveredMovieId === movie.id
+                    ? "hover-active"
+                    : "hover-inactive"
+                }
               >
-                {favouritedSvg}
-              </button>
+                <h3>{movie["title"]}</h3>
+                <Link to={`../moviedetails/${movie.id}`}>More Info</Link>
+                <button
+                  onClick={() => {
+                    removeFromFavourites(movie);
+                  }}
+                  className="favourites-button"
+                >
+                  {favouritedSvg}
+                </button>
+              </div>
             </div>
           );
         })}
