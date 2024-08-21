@@ -1,21 +1,37 @@
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Header() {
+
+  //change nav bg on scroll
+  const [navBG, setNavBG] = useState(false)
+
+  const changeBG = () => {
+    if (window.scrollY >= 10) {
+      setNavBG(true)
+    } else {
+      setNavBG(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeBG)
+
   return (
     <header>
-      <h1>Movie App</h1>
-      <ul className="main-nav">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/favourites">Favourites</Link>
-        </li>
-      </ul>
+      <nav className={navBG ? 'navBar active' : 'navBar'}>
+        <div>
+          <Link to="/"><img src="/clickflicks.png" alt="click flicks logo" className="logo" /></Link>
+        </div>
+        <ul className="main-nav">
+          <li className="nav-item">
+            <Link to="/about" className="nav-link">About</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/favourites" className="nav-link">Favourites</Link>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }
