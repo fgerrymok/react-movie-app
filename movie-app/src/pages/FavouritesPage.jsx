@@ -28,7 +28,7 @@ export default function Favourites() {
     Object.keys(favouritedMovies).map((key) => {
       setFavourites([...favourites, favouritedMovies[key]]);
     });
-    console.log(favouritedMovies);
+    // console.log(favouritedMovies);
   }
 
   return (

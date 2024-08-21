@@ -6,8 +6,11 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 function MovieDetails() {
   const id = useParams().id;
   const [movie, setMovie] = useState(null);
+  const [movieIsFavourited, setFavouritedState] = useState(null);
   const baseBackdropUrl = "https://image.tmdb.org/t/p/w1280/";
   const basePosterUrl = "http://image.tmdb.org/t/p/w185";
+  const favouritedMovies = { ...localStorage };
+
   const notFavouritedSvg = (
     <svg
       clip-rule="evenodd"
@@ -46,12 +49,29 @@ function MovieDetails() {
       );
       const movieData = await response.json();
       setMovie(movieData);
-      console.log(movieData);
     }
     getMovie();
-  }, []);
 
-  function toggleFavourites(movie) {}
+    Object.keys(favouritedMovies).map((key) => {
+      if (id === key) {
+        updateState();
+      }
+    });
+  }, [id]);
+
+  function updateState() {
+    setFavouritedState(true);
+  }
+
+  function toggleFavourites(movie) {
+    if (localStorage.getItem(movie.id) === null) {
+      localStorage.setItem(movie.id, JSON.stringify(movie));
+      setFavouritedState(true);
+    } else {
+      localStorage.removeItem(movie.id);
+      setFavouritedState(false);
+    }
+  }
 
   return (
     <div className="movie-details-card">
@@ -74,7 +94,7 @@ function MovieDetails() {
                 }}
                 className="favourites-button"
               >
-                placeholder
+                {movieIsFavourited ? favouritedSvg : notFavouritedSvg}
               </button>
               <h1>{movie.title}</h1>
               <h2>Release Date: {movie.release_date}</h2>

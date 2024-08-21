@@ -46,6 +46,7 @@ function Subnav() {
         `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1&api_key=${API}`
       );
       const data = await response.json();
+
       const movieData = data.results;
       setMovies(movieData);
     }
@@ -60,7 +61,6 @@ function Subnav() {
     if (localStorage.getItem(movie.id) === null) {
       localStorage.setItem(movie.id, JSON.stringify(movie));
       setFavourites([...favourites, movie]);
-      console.log(favourites);
     } else {
       localStorage.removeItem(movie.id);
       const newFavourites = favourites.filter((iteratedMovie) => {
