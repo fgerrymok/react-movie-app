@@ -47,8 +47,8 @@ function Subnav() {
         `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1&api_key=${API}`
       );
       const data = await response.json();
-
       const movieData = data.results;
+      console.log(movieData);
       setMovies(movieData);
     }
     generateMovies();
@@ -125,6 +125,7 @@ function Subnav() {
                   }
                 >
                   <h3>{movie.title}</h3>
+                  <p>{movie.overview}</p>
                   <Link to={`moviedetails/${movie.id}`}>More Info</Link>
                   <button
                     onClick={() => {

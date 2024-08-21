@@ -21,13 +21,25 @@
     left: 0;
     right: 0;
     z-index: 400;
-    background-color: beige;
+    background-color: rgba(0, 0, 0, 70%);
     height: 100%;
     border-radius: 1rem;
 
     h3 {
       font-size: 2rem;
       padding: 1rem;
+      color: white;
+    }
+
+    p {
+      color: white;
+      padding: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4; /* number of lines to show */
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
     }
   }
 
