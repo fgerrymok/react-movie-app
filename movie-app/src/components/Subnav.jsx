@@ -107,11 +107,7 @@ function Subnav() {
             const posterUrl = basePosterUrl + movie.poster_path;
             return (
               <div
-                className={
-                  currentHoveredMovieId === movie.id
-                    ? "hover-active"
-                    : "hover-inactive"
-                }
+                className="movie-card"
                 key={movie.id}
                 onMouseEnter={() => {
                   setCurrentHoveredMovieId(movie.id);
@@ -121,18 +117,27 @@ function Subnav() {
                 }}
               >
                 <img src={posterUrl} alt={movie.title} />
-                <h3>{movie.title}</h3>
-                <Link to={`moviedetails/${movie.id}`}>More Info</Link>
-                <button
-                  onClick={() => {
-                    toggleFavourites(movie);
-                  }}
-                  className="favourites-button"
+                <div
+                  className={
+                    currentHoveredMovieId === movie.id
+                      ? "hover-active"
+                      : "hover-inactive"
+                  }
                 >
-                  {favourites.includes(movie) || localStorage.getItem(movie.id)
-                    ? favouritedSvg
-                    : notFavouritedSvg}
-                </button>
+                  <h3>{movie.title}</h3>
+                  <Link to={`moviedetails/${movie.id}`}>More Info</Link>
+                  <button
+                    onClick={() => {
+                      toggleFavourites(movie);
+                    }}
+                    className="favourites-button"
+                  >
+                    {favourites.includes(movie) ||
+                    localStorage.getItem(movie.id)
+                      ? favouritedSvg
+                      : notFavouritedSvg}
+                  </button>
+                </div>
               </div>
             );
           })}

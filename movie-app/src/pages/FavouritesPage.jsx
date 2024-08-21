@@ -4,7 +4,7 @@ import { Context } from "../App";
 
 export default function Favourites() {
   const [favourites, setFavourites] = useContext(Context);
-  const basePosterUrl = "http://image.tmdb.org/t/p/w185";
+  const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const favouritedMovies = { ...localStorage };
   const favouritedSvg = (
     <svg
