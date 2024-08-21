@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
 
-  .movie-card {
+  .hover-active {
     background-color: beige;
     width: 15rem;
     margin: 1rem;
@@ -17,5 +17,14 @@
     a {
       color: black;
     }
+  }
+
+  .hover-inactive {
+    /* display: none; */
+    background-color: black;
+    width: 15rem;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
   }
 }

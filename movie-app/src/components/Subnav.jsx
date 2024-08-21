@@ -7,8 +7,9 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 function Subnav() {
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState("popular");
+  const [currentHoveredMovieId, setCurrentHoveredMovieId] = useState(null);
   const [favourites, setFavourites] = useContext(Context);
-  const basePosterUrl = "http://image.tmdb.org/t/p/w185";
+  const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const notFavouritedSvg = (
     <svg
       clip-rule="evenodd"
@@ -104,9 +105,21 @@ function Subnav() {
         {movies &&
           movies.map((movie) => {
             const posterUrl = basePosterUrl + movie.poster_path;
-
             return (
-              <div className="movie-card" key={movie.id}>
+              <div
+                className={
+                  currentHoveredMovieId === movie.id
+                    ? "hover-active"
+                    : "hover-inactive"
+                }
+                key={movie.id}
+                onMouseEnter={() => {
+                  setCurrentHoveredMovieId(movie.id);
+                }}
+                onMouseLeave={() => {
+                  setCurrentHoveredMovieId(null);
+                }}
+              >
                 <img src={posterUrl} alt={movie.title} />
                 <h3>{movie.title}</h3>
                 <Link to={`moviedetails/${movie.id}`}>More Info</Link>
