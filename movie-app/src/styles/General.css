@@ -9,3 +9,11 @@
   --button-pink: #8d3757;
   --search-grey: #b0b0b7;
 }
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #1f2135;
+}
