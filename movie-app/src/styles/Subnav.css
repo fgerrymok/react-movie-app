@@ -1,3 +1,49 @@
+.buttons-wrapper {
+  text-align: left;
+  margin: 3rem 0 0 1rem;
+}
+
+.category-btn {
+  color: white;
+  font-weight: 250;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: all 0.2s;
+  position: relative;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+
+}
+
+.category-btn:hover,
+.category-btn:focus {
+  color: #ffb100;
+}
+
+.category-btn::after {
+  content: '';
+  height: .125rem;
+  width: 100%;
+  text-align: center;
+  background: #fc4d7a;
+  position: absolute;
+  left: 0;
+  bottom: -0.10rem;
+  opacity: 0;
+  transition: all 0.2s;
+  pointer-events: none;
+}
+
+.category-btn:hover::after,
+.category-btn:focus::after {
+  opacity: 1;
+}
+
+
 .movies-container {
   display: flex;
   flex-wrap: wrap;
@@ -21,23 +67,37 @@
     left: 0;
     right: 0;
     z-index: 400;
-    background-color: rgba(0, 0, 0, 70%);
+    background-color: #1f2034ba;
     height: 100%;
     border-radius: 1rem;
 
-    h3 {
-      font-size: 2rem;
-      padding: 1rem;
+    .title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      /* padding: 2rem 0 0.5rem 0; */
       color: white;
+      /* margin: 1rem 0 0 0; */
+      margin: 3rem 0 0.5rem 0;
     }
 
-    p {
+    .release-date {
       color: white;
+      font-size: 1.3rem;
+      font-weight: 275;
+      /* padding: 0; */
+      margin: 0 0 1rem 0;
+    }
+
+    .description {
+      color: white;
+      font-weight: 250;
       padding: 1rem;
+      margin: 0;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 4; /* number of lines to show */
+      -webkit-line-clamp: 4;
+      /* number of lines to show */
       line-clamp: 4;
       -webkit-box-orient: vertical;
     }
@@ -46,4 +106,12 @@
   .hover-inactive {
     display: none;
   }
+}
+
+.more-info {
+  width: 2.5rem;
+}
+
+.hover-btns {
+  margin-top: 2rem;
 }
