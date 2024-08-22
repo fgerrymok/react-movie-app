@@ -10,8 +10,63 @@
 
 .movie-details-content {
   display: flex;
+  flex-wrap: wrap;
   background-color: var(--background-color);
   max-width: 70rem;
   margin: 0 auto;
   color: white;
+
+  
+  h1 {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  p {
+    text-align: left;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .favourites-and-play {
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.favourites-button {
+  width: 4rem;
+  background-color: transparent;
+  border: none;
+}
+
+.play-button {
+  width: 4.65rem;
+  background-color: transparent;
+  border: none;
+}
+
+@media (min-width: 46.875rem) {
+  
+  .movie-details-card {
+    position: relative;
+
+    .movie-backdrop {
+      height:40rem;
+    }
+
+    .movie-details-content {
+      position: absolute;
+      bottom: 3rem;
+      width: 50%;
+      flex-direction: column-reverse;
+      background-color: transparent;
+      padding: 2rem;
+    }
+  }
 }
