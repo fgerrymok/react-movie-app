@@ -1,13 +1,10 @@
 footer {
-  background-color: #0f101a;
+  background-color: #0F1019;
   padding: 1rem;
+}
 
-  p {
-    color: white;
-    text-transform: uppercase;
-  }
-
-  .footer-logo {
-    font-size: 2rem;
-  }
+.footer-logo {
+  max-width: 15rem;
+  margin-left: 1rem;
+  align-items: center;
 }
