@@ -34,6 +34,27 @@ useEffect(()=>{
       getThreeMovies();
     },[])
 
+    
+    const openTrailer = async (movieId) => {
+      try {
+        const response = await fetch(`${endpoint}${movieId}/videos?api_key=${API}`);
+        const json = await response.json();
+        console.log(json.results);
+        const trailers = json.results.filter(video => video.type === 'Trailer' && video.site === 'YouTube');
+        if (trailers.length > 0) {
+          const trailerUrl = `https://www.youtube.com/watch?v=${trailers[0].key}`;
+          window.open(trailerUrl, '_blank');
+        } else {
+          console.log('No trailer was found for this movie.');
+        }
+      } catch (error) {
+        console.log('Error fetching trailer:', error);
+      }
+    };
+  
+  
+
+
 const settingsMain = {
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -44,7 +65,7 @@ const settingsMain = {
 };
 
 const settingsTop = {
-  speed: 500,
+  speed: 1500,
   infinite: true,
   arrows:false,
   autoplay:true,
@@ -81,9 +102,21 @@ return (
         {mainCarouselMovies.map((poster) => (
           <div key={poster.id} className="main-posters">
             <img src={`${imagePath}${poster.backdrop_path}`} alt={`main-Poster-${poster.id}`} className='main-hero-image'/>
+            <div className='movie-info-wrapper'>
             <div className='movie-info'>
              <h2 className='title-homepage'>{poster.original_title}</h2>
              <p className='overview-homepage'>{createExcerpt(poster.overview,25)}</p>
+            </div>
+            <div className='hero-btns'>
+              <div className='hero-button watch-trailer-btn' onClick={() => openTrailer(poster.id)}>
+              <svg className="hero-btn-icon" viewBox="-0.5 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play [#1001]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-427.000000, -3765.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="play-[#1001]" points="371 3605 371 3613 378 3609"> </polygon> </g> </g> </g> </g></svg>
+              <a href="#">WATCH TRAILER</a>
+              </div>
+              <div className='hero-button more-info-btn'>
+              <svg className="hero-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#FC4A78" stroke-width="1.5"></circle> <path d="M12 17V11" stroke="#FC4A78" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 9)" fill="#FC4A78"></circle> </g></svg>
+              <a href="#">MORE INFO</a>
+              </div>
+            </div>
             </div>
           </div>
         ))}
