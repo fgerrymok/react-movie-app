@@ -33,6 +33,7 @@ height: 100%;
 
 @media(min-width:32em){
   .carousel-container{
+  position: relative;
   height: 70vh;
   }
   .main-posters-wrapper {
@@ -41,9 +42,54 @@ height: 100%;
     .top-posters-wrapper {
     display: none;
     }
+      /* New: position absolute the movie info */
+    .movie-info-wrapper{
+      margin-left: 1rem;
+      z-index: 10;
+      position:absolute;
+      top: 20.5rem;
+    }
     .movie-info{
-      width: 60%;
+      width: 30rem;
       text-align: left;
+      color: white;
+      font-family: 'Poppins';
+    }
+    .title-homepage{
+    font-size: 2rem;
+    margin-bottom: 0;
+    }
+
+    .hero-btns{
+      display: flex;
+      justify-content: flex-start;
+      gap: 0.5rem;
+    }
+    .hero-btns a{
+      text-decoration: none;
+      color: white;
+    }
+    .hero-button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem;
+      border-radius: 0.2rem;
+      font-family: 'Poppins';
+    }
+    
+    .hero-btn-icon{
+      width: 1.2rem;
+    }
+    .more-info-btn{
+      background-color: #7276a8;
+    }
+    .watch-trailer-btn{
+      background-color:#8d3757;
+    }
+    .watch-trailer-btn svg{
+      height: 1.5rem;
     }
 
 }
@@ -70,7 +116,7 @@ height: 100%;
  }
 
  .top-posters-wrapper{
-  display: none;
+  display: block;
   position: absolute;
   top: 7rem;
   right:-15%;
@@ -78,7 +124,7 @@ height: 100%;
  }
  .top-posters{
   transform: scale(0.85);
-  transition: transform;
+  transition: transform 500ms;
  }
  .top-posters img{
   width: 100%;
