@@ -7,6 +7,7 @@ function MovieDetails() {
   const id = useParams().id;
   const [movie, setMovie] = useState(null);
   const [movieIsFavourited, setFavouritedState] = useState(null);
+  const endpoint = 'https://api.themoviedb.org/3/movie/';
   const baseBackdropUrl = "https://image.tmdb.org/t/p/original/";
   const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const favouritedMovies = { ...localStorage };
@@ -41,6 +42,24 @@ function MovieDetails() {
     setFavouritedState(true);
   }
 
+  // function to make the url for trailer
+  const openTrailer = async (movieId) => {
+    try {
+      const response = await fetch(`${endpoint}${movieId}/videos?api_key=${API}`);
+      const json = await response.json();
+      console.log(json.results);
+      const trailers = json.results.filter(video => video.type === 'Trailer' && video.site === 'YouTube');
+      if (trailers.length > 0) {
+        const trailerUrl = `https://www.youtube.com/watch?v=${trailers[0].key}`;
+        window.open(trailerUrl, '_blank');
+      } else {
+        console.log('No trailer was found for this movie.');
+      }
+    } catch (error) {
+      console.log('Error fetching trailer:', error);
+    }
+  };
+
   function toggleFavourites(movie) {
     if (localStorage.getItem(movie.id) === null) {
       localStorage.setItem(movie.id, JSON.stringify(movie));
@@ -62,7 +81,7 @@ function MovieDetails() {
           />
           <div className="movie-details-content">
               <div className="favourites-and-play">
-                <button className="play-button">{play}</button>
+                <button className="play-button" onClick={() => openTrailer(movie.id)}>{play}</button>
                 <button
                   onClick={() => {
                     toggleFavourites(movie);
