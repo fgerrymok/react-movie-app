@@ -35,7 +35,6 @@ export default function Favourites() {
 
   return (
     <div>
-      <h2>Favourites</h2>
       <div className="favourites-movie-container">
         {Object.keys(favouritedMovies).map((key) => {
           const stringifiedObject = localStorage.getItem(key);
