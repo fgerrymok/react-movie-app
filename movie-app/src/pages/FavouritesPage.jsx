@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default function Favourites() {
   const [favourites, setFavourites] = useContext(Context);
   const [currentHoveredMovieId, setCurrentHoveredMovieId] = useState(null);
+  // const [noItemsInFavourites, setNoItemsInFavourites] = useState(false);
   const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const favouritedMovies = { ...localStorage };
   const addedToFavouritesSvg = (
@@ -27,11 +28,11 @@ export default function Favourites() {
     Object.keys(favouritedMovies).map((key) => {
       setFavourites([...favourites, favouritedMovies[key]]);
     });
-    console.log(favouritedMovies);
   }
 
   return (
     <div>
+      <h2 className={Object.keys(favouritedMovies).length === 0 ? "show-message" : "hide-message"}>You have no favourites.</h2>;
       <div className="favourites-movie-container">
         {Object.keys(favouritedMovies).map((key) => {
           const stringifiedObject = localStorage.getItem(key);

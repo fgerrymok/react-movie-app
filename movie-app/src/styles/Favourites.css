@@ -3,7 +3,6 @@
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
   margin-top: 7rem;
-
 }
 
 .favourites-movie-card {
@@ -22,6 +21,16 @@
 
 .hover-inactive {
   display: none;
+}
+
+.hide-message {
+  display: none;
+}
+
+.show-message {
+  margin-top: 8rem;
+  display: block;
+  color: white;
 }
 
 @media (min-width: 50rem) {
