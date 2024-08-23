@@ -64,7 +64,7 @@ height: 100%;
       height: 2rem;
       display: flex;
       justify-content: flex-start;
-      gap: 0.5rem;
+      gap: 0.3rem;
     }
     .hero-btns a{
       text-decoration: none;
@@ -88,7 +88,7 @@ height: 100%;
     .more-info-btn svg{
      width: 1.5rem;
     }
-    .more-info-btn span{
+    .more-info-btn p{
       margin: 0;
     }
     .watch-trailer-btn{
@@ -97,6 +97,18 @@ height: 100%;
     }
     .watch-trailer-btn svg{
       height: 1.2rem;
+    }
+    .favourite-button{
+      padding: 0;
+    }
+    .favourite-button svg{
+      height: 2rem;
+    }
+    .hero-btn button{
+      width: 1.5rem;
+      padding: 0;
+      background-color: transparent;
+      border: none;
     }
 
 }
