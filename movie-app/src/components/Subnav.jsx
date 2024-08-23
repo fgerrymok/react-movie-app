@@ -96,7 +96,8 @@ function Subnav() {
                   setCurrentHoveredMovieId(null);
                 }}
               >
-                <img src={posterUrl} alt={movie.title} />
+                <Link className="more-info" to={`moviedetails/${movie.id}`}><img src={posterUrl} alt={movie.title} /></Link>
+                
                 <div
                   className={
                     currentHoveredMovieId === movie.id
