@@ -8,21 +8,18 @@ export default function Favourites() {
   const [currentHoveredMovieId, setCurrentHoveredMovieId] = useState(null);
   const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const favouritedMovies = { ...localStorage };
-  const favouritedSvg = (
-    <svg
-      clip-rule="evenodd"
-      fill-rule="evenodd"
-      stroke-linejoin="round"
-      stroke-miterlimit="2"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="m12 5.72c-2.624-4.517-10-3.198-10 2.461 0 3.725 4.345 7.727 9.303 12.54.194.189.446.283.697.283s.503-.094.697-.283c4.977-4.831 9.303-8.814 9.303-12.54 0-5.678-7.396-6.944-10-2.461z"
-        fill-rule="nonzero"
-      />
-    </svg>
-  );
+  const addedToFavouritesSvg = (
+    <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <circle cx="400" cy="400" r="400" fill="#ffb525"></circle>
+      <path d="M200,400l141.42,141.42,282.81-282.84" stroke="#fff" stroke-width="66.67" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+    </g>
+    </svg>)
+
+  const moreInformationSvg = (
+    <svg className="more-info" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#FC4A78" stroke-width="1.5"></circle> <path d="M12 17V11" stroke="#FC4A78" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 9)" fill="#FC4A78"></circle> </g></svg>)
 
   function removeFromFavourites(movie) {
     localStorage.removeItem(movie.id);
@@ -30,12 +27,11 @@ export default function Favourites() {
     Object.keys(favouritedMovies).map((key) => {
       setFavourites([...favourites, favouritedMovies[key]]);
     });
-    // console.log(favouritedMovies);
+    console.log(favouritedMovies);
   }
 
   return (
     <div>
-      <h2>Favourites</h2>
       <div className="favourites-movie-container">
         {Object.keys(favouritedMovies).map((key) => {
           const stringifiedObject = localStorage.getItem(key);
@@ -52,10 +48,11 @@ export default function Favourites() {
                 setCurrentHoveredMovieId(null);
               }}
             >
-              <img
+              <Link to={`../moviedetails/${movie.id}`}>      <img
                 src={`${basePosterUrl}${movie["poster_path"]}`}
                 alt={movie["title"]}
-              />
+              /></Link>
+
               <div
                 className={
                   currentHoveredMovieId === movie.id
@@ -63,16 +60,20 @@ export default function Favourites() {
                     : "hover-inactive"
                 }
               >
-                <h3>{movie["title"]}</h3>
-                <Link to={`../moviedetails/${movie.id}`}>More Info</Link>
-                <button
-                  onClick={() => {
-                    removeFromFavourites(movie);
-                  }}
-                  className="favourites-button"
-                >
-                  {favouritedSvg}
-                </button>
+                <h3 className="title">{movie["title"]}</h3>
+                <p className="release-date">{movie.release_date}</p>
+                <p className="description">{movie.overview}</p>
+                <div className="hover-btns">
+                  <Link to={`../moviedetails/${movie.id}`}>{moreInformationSvg}</Link>
+                  <button
+                    onClick={() => {
+                      removeFromFavourites(movie);
+                    }}
+                    className="favourites-button"
+                  >
+                    {addedToFavouritesSvg}
+                  </button>
+                </div>
               </div>
             </div>
           );
