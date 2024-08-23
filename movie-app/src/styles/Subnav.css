@@ -1,78 +1,126 @@
 .buttons-wrapper {
-  text-align: left;
-  margin: 3rem 0 0 1rem;
+  margin: 1rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.category-btn,
+.page-load-style {
+  padding: 0.8rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  background-color: #7276a88f;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.category-btn:focus {
+  padding: 0.8rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  background-color: #fc4d79ab;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .page-load-style {
-  color: #ffb100;
-  font-weight: 250;
-  text-decoration: none;
-  font-size: 1.5rem;
-  margin: 0 1rem;
-  transition: all 0.2s;
-  position: relative;
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-color: #fc4d7a;
-
+  background-color: #fc4d79ab;
 }
 
-.page-load-style::after {
-  content: '';
-  height: .125rem;
-  width: 100%;
-  text-align: center;
-  background: #fc4d7a;
-  position: absolute;
-  left: 0;
-  bottom: -0.10rem;
-  opacity: 0;
-  transition: all 0.2s;
-  pointer-events: none;
+.page-load-style:focus {
+  background-color: #fc4d79ab;
 }
 
-.category-btn {
-  color: white;
-  font-weight: 250;
-  text-decoration: none;
-  font-size: 1.5rem;
-  margin: 0 1rem;
-  transition: all 0.2s;
-  position: relative;
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  text-transform: uppercase;
 
-}
 
-.category-btn:hover,
-.category-btn:focus {
-  color: #ffb100;
-}
+@media(min-width: 50em) {
 
-.category-btn::after {
-  content: '';
-  height: .125rem;
-  width: 100%;
-  text-align: center;
-  background: #fc4d7a;
-  position: absolute;
-  left: 0;
-  bottom: -0.10rem;
-  opacity: 0;
-  transition: all 0.2s;
-  pointer-events: none;
-}
+  .buttons-wrapper {
+    display: block;
+    text-align: left;
+    margin: 3rem 0 0 1rem;
+  }
 
-.category-btn:hover::after,
-.category-btn:focus::after {
-  opacity: 1;
+  .page-load-style {
+    color: #ffb100;
+    font-weight: 250;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: all 0.2s;
+    position: relative;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: #fc4d7a;
+
+  }
+
+  .page-load-style:focus {
+    background-color: transparent;
+  }
+
+  .page-load-style::after {
+    content: '';
+    height: .125rem;
+    width: 100%;
+    text-align: center;
+    background: #fc4d7a;
+    position: absolute;
+    left: 0;
+    bottom: -0.10rem;
+    opacity: 0;
+    transition: all 0.2s;
+    pointer-events: none;
+  }
+
+  .category-btn {
+    color: white;
+    font-weight: 250;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: all 0.2s;
+    position: relative;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+
+  }
+
+  .category-btn:hover,
+  .category-btn:focus {
+    color: #ffb100;
+  }
+
+  .category-btn::after {
+    content: '';
+    height: .125rem;
+    width: 100%;
+    text-align: center;
+    background: #fc4d7a;
+    position: absolute;
+    left: 0;
+    bottom: -0.10rem;
+    opacity: 0;
+    transition: all 0.2s;
+    pointer-events: none;
+  }
+
+  .category-btn:hover::after,
+  .category-btn:focus::after {
+    opacity: 1;
+  }
 }
 
 
@@ -117,7 +165,7 @@
   }
 }
 
-@media (min-width: 64em ) {
+@media (min-width: 64em) {
   .hover-active {
     position: absolute;
     top: 0;
