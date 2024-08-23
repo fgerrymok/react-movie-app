@@ -1,5 +1,7 @@
 import React from 'react'
-import { useState,useEffect, useRef } from 'react';
+import { useState,useEffect, useRef, useContext } from 'react';
+import { Context } from "../App";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "../styles/Carousel.css";
 import "../../node_modules/slick-carousel/slick/slick.css";
@@ -9,6 +11,7 @@ function Carousel() {
   const API = import.meta.env.VITE_MOVIE_API_KEY;
   const [mainCarouselMovies, setMainCarouselMovies] = useState([]);
   const [imageIndex, setImageIndex] = useState(0);
+  const [favourites, setFavourites] = useContext(Context);
   const endpoint = 'https://api.themoviedb.org/3/movie/';
   const imagePath= "https://image.tmdb.org/t/p/original/"
   
@@ -17,6 +20,32 @@ function Carousel() {
 // second approach to have two sliders
 const mainSlider = useRef(null);
 const topSlider = useRef(null);
+
+// svgs
+const moreInformationSvg = (
+  <svg className="more-info" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#1f2135" stroke-width="1.5"></circle> <path d="M12 17V11" stroke="#1f2135" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 9)" fill="#1f2135"></circle> </g></svg>)
+
+  const addToFavouritesSvg = (
+    <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <circle cx="400" cy="400" r="400" fill="#D3D3DD" opacity="0.5"></circle>
+      <path d="M200,400h200M400,400h200M400,400v200M400,400V200" stroke="#FFFFFF" stroke-width="66.6667" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="133.3333" fill="none"></path>
+    </g>
+  </svg>)
+
+  const addedToFavouritesSvg = (
+    <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <circle cx="400" cy="400" r="400" fill="#ffb525"></circle>
+      <path d="M200,400l141.42,141.42,282.81-282.84" stroke="#fff" stroke-width="66.67" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+    </g>
+    </svg>)
+ 
+
 
 useEffect(()=>{
       const getThreeMovies = async () =>{
@@ -51,6 +80,19 @@ useEffect(()=>{
         console.log('Error fetching trailer:', error);
       }
     };
+
+    function toggleFavourites(movie) {
+      if (localStorage.getItem(movie.id) === null) {
+        localStorage.setItem(movie.id, JSON.stringify(movie));
+        setFavourites([...favourites, movie]);
+      } else {
+        localStorage.removeItem(movie.id);
+        const newFavourites = favourites.filter((iteratedMovie) => {
+          iteratedMovie !== movie;
+        });
+        setFavourites(newFavourites);
+      }
+    }
   
   
 
@@ -112,9 +154,24 @@ return (
               <svg className="hero-btn-icon" viewBox="-0.5 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>play [#1001]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-427.000000, -3765.000000)" fill="#ffffff"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="play-[#1001]" points="371 3605 371 3613 378 3609"> </polygon> </g> </g> </g> </g></svg>
               <a href="#">WATCH TRAILER</a>
               </div>
-              <div className='hero-button more-info-btn'>
-              <svg className="hero-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="10" stroke="#FC4A78" stroke-width="1.5"></circle> <path d="M12 17V11" stroke="#FC4A78" stroke-width="1.5" stroke-linecap="round"></path> <circle cx="1" cy="1" r="1" transform="matrix(1 0 0 -1 11 9)" fill="#FC4A78"></circle> </g></svg>
-              <a href="#">MORE INFO</a>
+
+              {
+                <Link className="hero-button more-info-btn" to={`moviedetails/${poster.id}`}>
+                  {moreInformationSvg}
+                  <p>MORE INFO</p>
+                </Link>
+              }
+              <div className='hero-btn favourite-button'>
+              <button
+                      onClick={() => {
+                        toggleFavourites(poster);
+                      }}
+                    >
+                      {favourites.includes(poster) ||
+                        localStorage.getItem(poster.id)
+                        ? addedToFavouritesSvg
+                        : addToFavouritesSvg}
+                    </button>
               </div>
             </div>
             </div>
