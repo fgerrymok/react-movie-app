@@ -19,6 +19,9 @@ function Header() {
 
   return (
     <header>
+      <div className="mobile-logo">
+        <img src="/clickflicks.png" alt="logo" />
+      </div>
       <nav className={navBG ? 'navBar active' : 'navBar'}>
         <div>
           <Link to="/"><img src="/clickflicks.png" alt="click flicks logo" className="logo" /></Link>
