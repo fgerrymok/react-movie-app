@@ -186,11 +186,15 @@ return (
       >
         {mainCarouselMovies.map((movie,index) => (
           <div key={movie.id} className={`top-posters ${index === imageIndex ? "active-slide" : "not-active"}`}>
+            {
+              <Link to={`moviedetails/${movie.id}`}>
             <img
               className="top-hero-img"
               src={`${imagePath}${movie.poster_path}`}
               alt={movie.title}
             />
+              </Link>
+            }
           </div>
         ))}
       </Slider>
