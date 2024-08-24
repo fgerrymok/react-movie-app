@@ -34,15 +34,26 @@
 }
 
 .show-message {
-  margin-top: 12rem;
+  margin: 12rem 1rem 0rem 1rem;
   display: block;
   color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   
+}
+
+.smaller-add-to-favourites {
+  padding: 0 1rem;
 }
 
 @media (min-width: 50rem) {
   .favourites-movie-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .show-message {
+    margin: 12rem 4rem 0rem 4rem;
   }
 }
 
@@ -78,17 +89,6 @@
       font-weight: 250;
       padding: 1rem;
       margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      /* number of lines to show */
-      line-clamp: 4;
-      -webkit-box-orient: vertical;
-    }
-
-    .hover-btns {
-      padding: 0.5rem;
     }
   }
 }
