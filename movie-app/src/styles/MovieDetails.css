@@ -16,8 +16,6 @@
 
 .movie-backdrop {
   object-fit: cover;
-  /* width: 100%;
-  height: 30rem; */
   height: 100%;
   width: 100%;
   display: block;
@@ -51,7 +49,7 @@
   }
 
   .favourites-and-play {
-    width: 100%;
+    width: fit-content;
     vertical-align: middle;
     display: flex;
     align-items: center;
@@ -60,15 +58,15 @@
 }
 
 .favourites-button {
-  width: 4rem;
   background-color: transparent;
   border: none;
+  padding-right: 1rem;
 }
 
 .play-button {
-  width: 4.65rem;
   background-color: transparent;
   border: none;
+  padding-right: 1rem;
 }
 
 .movie-details-card .rating {
@@ -80,6 +78,19 @@
   border-radius: 50%;
   background-color: #1f2135db;
   border: 0.2rem solid #7276a8;
+}
+
+.rating {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 0.5rem !important;
+  padding-left: 0.4rem !important;
 }
 
 @media(min-width:32em) {
