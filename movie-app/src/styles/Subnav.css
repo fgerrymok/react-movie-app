@@ -72,7 +72,7 @@
 .movies-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+  margin-bottom: 6rem;
 }
 
 .movie-card {
@@ -103,6 +103,7 @@
   .movies-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 0;
   }
 }
 
