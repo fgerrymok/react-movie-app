@@ -12,22 +12,22 @@ function Subnav() {
   const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const addToFavouritesSvg = (
     <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-    <g id="SVGRepo_iconCarrier">
-      <circle cx="400" cy="400" r="400" fill="#D3D3DD" opacity="0.5"></circle>
-      <path d="M200,400h200M400,400h200M400,400v200M400,400V200" stroke="#FFFFFF" stroke-width="66.6667" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="133.3333" fill="none"></path>
-    </g>
-  </svg>)
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <circle cx="400" cy="400" r="400" fill="#D3D3DD" opacity="0.5"></circle>
+        <path d="M200,400h200M400,400h200M400,400v200M400,400V200" stroke="#FFFFFF" stroke-width="66.6667" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="133.3333" fill="none"></path>
+      </g>
+    </svg>)
 
   const addedToFavouritesSvg = (
     <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-    <g id="SVGRepo_iconCarrier">
-      <circle cx="400" cy="400" r="400" fill="#ffb525"></circle>
-      <path d="M200,400l141.42,141.42,282.81-282.84" stroke="#fff" stroke-width="66.67" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
-    </g>
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <circle cx="400" cy="400" r="400" fill="#ffb525"></circle>
+        <path d="M200,400l141.42,141.42,282.81-282.84" stroke="#fff" stroke-width="66.67" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+      </g>
     </svg>)
 
   const moreInformationSvg = (
@@ -111,7 +111,7 @@ function Subnav() {
                 }}
               >
                 <Link className="more-info" to={`moviedetails/${movie.id}`}><img src={posterUrl} alt={movie.title} /></Link>
-                
+
                 <div
                   className={
                     currentHoveredMovieId === movie.id
