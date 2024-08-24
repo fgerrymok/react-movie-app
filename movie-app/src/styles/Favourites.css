@@ -1,9 +1,14 @@
+.main-body {
+  min-height: 89.4vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .favourites-movie-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
   margin-top: 7rem;
-
 }
 
 .favourites-movie-card {
@@ -22,6 +27,17 @@
 
 .hover-inactive {
   display: none;
+}
+
+.hide-message {
+  display: none;
+}
+
+.show-message {
+  margin-top: 12rem;
+  display: block;
+  color: white;
+  
 }
 
 @media (min-width: 50rem) {
