@@ -139,9 +139,13 @@
     .description {
       color: white;
       font-weight: 250;
-      padding: 1.5rem !important;
+      padding: 0rem 1.5rem !important;
       margin: 0 auto !important;
       text-align: left;
+    }
+
+    .hover-btns {
+      margin-top: 1rem;
     }
   }
 }
