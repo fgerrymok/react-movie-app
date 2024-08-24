@@ -17,7 +17,7 @@
   margin: 0 auto;
   color: white;
 
-  
+
   h1 {
     width: 100%;
     text-align: left;
@@ -51,7 +51,8 @@
   background-color: transparent;
   border: none;
 }
-.movie-details-card .rating{
+
+.movie-details-card .rating {
   text-align: center;
   position: absolute;
   top: 4rem;
@@ -62,18 +63,18 @@
   border: 0.2rem solid #7276a8;
 }
 
-@media(min-width:32em){
-  .movie-details-card .rating{
+@media(min-width:32em) {
+  .movie-details-card .rating {
     position: relative;
     top: 0;
     left: 0;
-    display:inline;
+    display: inline;
   }
 
 }
 
 @media (min-width: 50em) {
-  
+
   .movie-details-card {
     position: relative;
 
