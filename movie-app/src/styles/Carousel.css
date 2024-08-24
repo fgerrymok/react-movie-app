@@ -1,3 +1,38 @@
+/* the carousel dots style */
+.carousel-container .slick-dots li button:before
+{
+    font-family: 'slick';
+    font-size: 20px;
+    line-height: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 20px;
+    height: 20px;
+
+    content: '•';
+    text-align: center;
+
+    opacity: .50;
+    color: white;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.carousel-container .slick-dots li.slick-active button:before
+{
+    opacity: .90;
+    color:white;
+}
+
+
+
+
+
+
+
 
 
 .carousel-container{
@@ -34,11 +69,11 @@ height: 100%;
 @media(min-width:32em){
   .carousel-container{
   position: relative;
-  height: 75vh;
+  height: 80vh;
   }
   .main-posters-wrapper {
     display: block;
-    height: 75vh;
+    height:80vh;
     }
     .top-posters-wrapper {
     display: none;
@@ -46,23 +81,22 @@ height: 100%;
       /* New: position absolute the movie info */
     .movie-info-wrapper{
       margin-left: 1rem;
-      /* z-index: 10;
-      position:absolute;
-      top: 12rem; */
     }
     .movie-info{
-      width: 33rem;
+      width: 28rem;
       text-align: left;
       color: white;
       font-family: 'Poppins';
       font-weight: 400;
     }
     .title-homepage{
-    font-size: 2.8rem;
+    font-size: 2rem;
     margin-bottom: 0;
     font-weight: 600;
     }
-
+    .overview-homepage{
+      font-size: 1rem;
+    }
     .hero-btns{
       height: 2rem;
       display: flex;
@@ -126,7 +160,10 @@ height: 100%;
 }
 @media(min-width:46.25em){
   .title-homepage{
- margin-top: 0;
+    margin-top: 0.5rem;
+    }
+    .movie-info-wrapper{
+      margin-top:0;
     }
 }
 
@@ -135,7 +172,13 @@ height: 100%;
     margin-left: 1rem;
     z-index: 10;
     position:absolute;
-    top: 15rem;
+    top: 12rem;
+  }
+  .title-homepage{
+    font-size: 2.8rem;
+  }
+  .overview-homepage{
+    font-size: 1.2rem;
   }
   .carousel-container{
     position: relative;
@@ -146,6 +189,9 @@ height: 100%;
     display: block;
     height: 55vh;
     overflow: hidden;
+   }
+   .movie-info{
+     width: 33rem;
    }
 }
 
@@ -172,7 +218,7 @@ height: 100%;
  }
 
  .movie-info-wrapper{
-  top: 20.5rem;
+  top: 18rem;
  }
 
  .top-posters-wrapper{
