@@ -69,11 +69,11 @@ height: 100%;
 @media(min-width:32em){
   .carousel-container{
   position: relative;
-  height: 80vh;
+  height: 52vh;
   }
   .main-posters-wrapper {
     display: block;
-    height:80vh;
+    height:52vh;
     }
     .top-posters-wrapper {
     display: none;
@@ -82,8 +82,11 @@ height: 100%;
     .movie-info-wrapper{
       position: absolute;
       background-color: rgba(0, 0, 0, 0.417);
-      padding: 0.5rem;
-      top: 5rem;
+      padding: 0.3rem;
+      border-radius: 1rem;
+      padding: 0.4rem;
+      top:4.1rem ;
+      margin-left: 1.8rem;
     }
     .movie-info{
       width: 28rem;
@@ -162,12 +165,21 @@ height: 100%;
     }
 
 }
+@media(min-width:40em){
+  .carousel-container{
+    height: 65vh;
+   }
+   .main-posters-wrapper{
+    height: 65vh;
+   }
+}
 @media(min-width:46.25em){
   .title-homepage{
     margin-top: 0.5rem;
     }
     .movie-info-wrapper{
       margin-top:0;
+      top: 11.5rem;
     }
 }
 
@@ -176,6 +188,7 @@ height: 100%;
     margin-left: 1rem;
     z-index: 10;
     position:absolute;
+    top: 12rem;
   }
   .title-homepage{
     font-size: 2.8rem;
@@ -185,12 +198,12 @@ height: 100%;
   }
   .carousel-container{
     position: relative;
-    height: 55vh;
+    height: 70vh;
     overflow: hidden;
    }
    .main-posters-wrapper{
     display: block;
-    height: 55vh;
+    height: 70vh;
     overflow: hidden;
    }
    .movie-info{
@@ -221,7 +234,8 @@ height: 100%;
  }
 
  .movie-info-wrapper{
-  top: 18rem;
+  top: 17rem;
+  background-color: rgba(0, 0, 0, 0);
  }
 
  .top-posters-wrapper{
