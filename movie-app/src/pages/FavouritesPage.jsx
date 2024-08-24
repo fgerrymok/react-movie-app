@@ -17,7 +17,7 @@ export default function Favourites() {
       <circle cx="400" cy="400" r="400" fill="#ffb525"></circle>
       <path d="M200,400l141.42,141.42,282.81-282.84" stroke="#fff" stroke-width="66.67" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
     </g>
-    </svg>)
+    </svg>) 
 
   const addToFavouritesSvg = (
     <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,9 +40,18 @@ export default function Favourites() {
     });
   }
 
+  // From: https://medium.com/@paulohfev/problem-solving-how-to-create-an-excerpt-fdb048687928
+  const createExcerpt = (content, maxNumberOfWords, trailingIndicator = '...') => {
+    const listOfWords = content.trim().split(' ');
+    const truncatedContent = listOfWords.slice(0, maxNumberOfWords).join(' ');
+    const excerpt = truncatedContent + trailingIndicator;
+    const output = listOfWords.length > maxNumberOfWords ? excerpt : content;
+    return output;
+  }
+
   return (
     <div className="main-body">
-      <h2 className={Object.keys(favouritedMovies).length === 0 ? "show-message" : "hide-message"}>You have no movies on your Favorites. Add your favorite movies later by clicking {addToFavouritesSvg} Add to Favorites.</h2>;
+      <h2 className={Object.keys(favouritedMovies).length === 0 ? "show-message" : "hide-message"}>You have no movies on your Favorites. Add your favorite movies later by clicking <span className="smaller-add-to-favourites">{addToFavouritesSvg}</span> Add to Favorites.</h2>;
       <div className="favourites-movie-container">
         {Object.keys(favouritedMovies).map((key) => {
           const stringifiedObject = localStorage.getItem(key);
@@ -73,7 +82,7 @@ export default function Favourites() {
               >
                 <h3 className="title">{movie["title"]}</h3>
                 <p className="release-date">{movie.release_date}</p>
-                <p className="description">{movie.overview}</p>
+                <p className="description">{createExcerpt(movie.overview, 15)}</p>
                 <div className="hover-btns">
                   <Link to={`../moviedetails/${movie.id}`}>{moreInformationSvg}</Link>
                   <button
