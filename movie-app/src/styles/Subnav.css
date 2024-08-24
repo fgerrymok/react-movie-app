@@ -15,6 +15,7 @@
   color: white;
   font-size: 1rem;
   font-weight: 300;
+  margin: 0 0.5rem;
 }
 
 .category-btn:focus {
@@ -31,10 +32,6 @@
 .page-load-style {
   background-color: #fc4d79ab;
 }
-
-/* .page-load-style:focus {
-  background-color: #fc4d79ab;
-} */
 
 @media (min-width: 32em) {
   .buttons-wrapper {
@@ -130,28 +127,23 @@
       font-weight: 600;
       color: white;
       margin: 3rem 0 0.5rem 0;
+      text-align: center !important;
     }
 
     .release-date {
       color: white;
       font-size: 1.3rem;
       font-weight: 275;
-      /* padding: 0; */
+      text-align: center;
       margin: 0 0 1rem 0;
     }
 
     .description {
       color: white;
       font-weight: 250;
-      padding: 1rem;
-      margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      /* number of lines to show */
-      line-clamp: 4;
-      -webkit-box-orient: vertical;
+      padding: 2rem !important;
+      margin: 0 auto !important;
+      text-align: left;
     }
   }
 }

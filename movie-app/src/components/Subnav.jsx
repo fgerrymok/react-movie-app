@@ -63,6 +63,15 @@ function Subnav() {
     }
   }
 
+  // From: https://medium.com/@paulohfev/problem-solving-how-to-create-an-excerpt-fdb048687928
+  const createExcerpt = (content, maxNumberOfWords, trailingIndicator = '...') => {
+    const listOfWords = content.trim().split(' ');
+    const truncatedContent = listOfWords.slice(0, maxNumberOfWords).join(' ');
+    const excerpt = truncatedContent + trailingIndicator;
+    const output = listOfWords.length > maxNumberOfWords ? excerpt : content;
+    return output;
+  }
+
   return (
     <>
       <div className="buttons-wrapper">
@@ -121,7 +130,7 @@ function Subnav() {
                 >
                   <h3 className="title">{movie.title}</h3>
                   <p className="release-date">{movie.release_date}</p>
-                  <p className="description">{movie.overview}</p>
+                  <p className="description">{createExcerpt(movie.overview, 20)}</p>
                   <div className="hover-btns">
                     <Link className="more-info" to={`moviedetails/${movie.id}`}>{moreInformationSvg}</Link>
                     <button
