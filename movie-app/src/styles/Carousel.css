@@ -69,11 +69,14 @@ height: 100%;
 @media(min-width:32em){
   .carousel-container{
   position: relative;
-  height: 52vh;
+  /* new changes */
+  min-height: 40vh;
+  max-height: 51vh;
   }
   .main-posters-wrapper {
     display: block;
-    height:52vh;
+    min-height: 40vh;
+    max-height: 51vh;
     }
     .top-posters-wrapper {
     display: none;
@@ -84,9 +87,9 @@ height: 100%;
       background-color: rgba(0, 0, 0, 0.417);
       padding: 0.3rem;
       border-radius: 1rem;
-      padding: 0.4rem;
+      padding: 0.6rem;
       /* top:4.1rem ; */
-      top: 23%;
+      top: 21%;
       margin-left: 1.8rem;
     }
     .movie-info{
@@ -168,10 +171,12 @@ height: 100%;
 }
 @media(min-width:40em){
   .carousel-container{
-    height: 60vh;
+    min-height: 48vh;
+    max-height: 62vh;
    }
    .main-posters-wrapper{
-    height: 60vh;
+    min-height: 48vh;
+    max-height: 62vh;
    }
    .movie-info-wrapper{
     top: 30%;
@@ -179,10 +184,10 @@ height: 100%;
 }
 @media(min-width:46.25em){
   .carousel-container{
-    height: 64vh;
+    /* height: 64vh; */
    }
    .main-posters-wrapper{
-    height: 64vh;
+    /* height: 64vh; */
    }
   .title-homepage{
     margin-top: 0.5rem;
@@ -208,12 +213,14 @@ height: 100%;
   }
   .carousel-container{
     position: relative;
-    height: 60vh;
+    min-height: 48vh;
+    max-height: 60vh;
     overflow: hidden;
    }
    .main-posters-wrapper{
     display: block;
-    height: 60vh;
+    min-height: 48vh;
+    max-height: 60vh;
     overflow: hidden;
    }
    .movie-info{
@@ -222,10 +229,13 @@ height: 100%;
 }
 @media(min-width:58em){
   .carousel-container{
-    height: 63vh;
+    min-height: 45vh;
+    max-height: 60vh;
+   
    }
    .main-posters-wrapper{
-    height: 63vh;
+    min-height: 45vh;
+    max-height: 60vh;
    }
    .movie-info-wrapper{
     top: 25%;
@@ -240,12 +250,14 @@ height: 100%;
  /* new styles with the backdrop and posters trial */
  .carousel-container{
   position: relative;
-  height: 80vh;
+  min-height: 50vh;
+  max-height: 80vh;
   overflow: hidden;
  }
  .main-posters-wrapper{
   display: block;
-  height: 80vh;
+  min-height: 50vh;
+  max-height: 80vh;
   overflow: hidden;
  }
  .main-posters-wrapper img{
