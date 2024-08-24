@@ -21,6 +21,7 @@
   z-index: 100;
   bottom: 0;
   width: 100%;
+  z-index: 9999;
 }
 
 .mobile-nav {
@@ -31,15 +32,12 @@
   padding: 0;
 }
 
+
+
 @media(min-width: 50em) {
 
   .mobile-nav {
     display: none;
-  }
-
-  footer {
-    background-color: #0F1019;
-    padding: 1rem;
   }
 
   .footer-logo {
@@ -47,6 +45,20 @@
     max-width: 15rem;
     margin: 0 auto;
     align-items: center;
+    /* position: relative; */
   }
+
+  footer {
+    background-color: #0F1019;
+    padding: 1rem;
+    /* position: absolute; */
+    width: 100%;
+    bottom: -6rem;
+    /* z-index: 9999; */
+
+  }
+
+
+
 
 }
