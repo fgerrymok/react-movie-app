@@ -1,5 +1,5 @@
 .main-body {
-  min-height: 90vh;
+  min-height: 89.4vh;
   display: flex;
   flex-direction: column;
 }
@@ -34,9 +34,10 @@
 }
 
 .show-message {
-  margin-top: 8rem;
+  margin-top: 12rem;
   display: block;
   color: white;
+  
 }
 
 @media (min-width: 50rem) {

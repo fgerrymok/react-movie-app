@@ -42,7 +42,7 @@ export default function Favourites() {
 
   return (
     <div className="main-body">
-      <h2 className={Object.keys(favouritedMovies).length === 0 ? "show-message" : "hide-message"}>You have no movies on your Favorites. Add your favorite movies later by clicking . Add to Favorites.</h2>;
+      <h2 className={Object.keys(favouritedMovies).length === 0 ? "show-message" : "hide-message"}>You have no movies on your Favorites. Add your favorite movies later by clicking {addToFavouritesSvg} Add to Favorites.</h2>;
       <div className="favourites-movie-container">
         {Object.keys(favouritedMovies).map((key) => {
           const stringifiedObject = localStorage.getItem(key);
