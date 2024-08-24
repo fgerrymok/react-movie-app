@@ -134,15 +134,16 @@
       color: white;
       font-size: 1.3rem;
       font-weight: 275;
-      /* padding: 0; */
+      text-align: center;
       margin: 0 0 1rem 0;
     }
 
     .description {
       color: white;
       font-weight: 250;
-      padding: 2rem;
+      padding: 2rem !important;
       margin: 0 auto !important;
+      text-align: left;
     }
   }
 }
