@@ -34,7 +34,7 @@
 }
 
 .show-message {
-  margin-top: 12rem;
+  margin: 12rem 1rem 0rem 1rem;
   display: block;
   color: white;
   display: flex;
@@ -50,6 +50,10 @@
 @media (min-width: 50rem) {
   .favourites-movie-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .show-message {
+    margin: 12rem 4rem 0rem 4rem;
   }
 }
 
