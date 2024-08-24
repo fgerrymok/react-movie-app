@@ -1,0 +1,38 @@
+.about-us {
+    background-color: #7276a841;
+    margin: 1.5rem;
+    border-radius: 40px;
+    padding: 1rem;
+    white-space: pre-wrap;
+    z-index: 50;
+    position: relative;
+
+}
+
+h2,
+p {
+    color: white;
+    font-weight: 250;
+    line-height: 1.5;
+}
+
+p {
+    text-align: left;
+}
+
+.img-bg {
+    opacity: 0.20;
+    z-index: 40;
+}
+
+.bg-1 {
+    transform: rotate(-20deg);
+    position: absolute;
+    bottom: 5rem;
+}
+
+.bg-2 {
+    position: absolute;
+    top: 10px;
+    left: -7rem;
+}
