@@ -1,12 +1,18 @@
+.main-content {
+    overflow: hidden;
+    min-height: 89.4vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .about-us {
     background-color: #7276a841;
-    margin: 1.5rem;
+    margin: 1.5rem 1.5rem 8rem 1.5rem;
     border-radius: 40px;
     padding: 1rem;
     white-space: pre-wrap;
     z-index: 50;
     position: relative;
-
 }
 
 h2,
@@ -35,4 +41,32 @@ p {
     position: absolute;
     top: 10px;
     left: -7rem;
+
 }
+
+@media (min-width: 31.25em) {
+    .about-us {
+        margin-top: 10rem;
+    }
+}
+
+@media (min-width: 50em) {
+    .about-us {
+        margin-left: 5rem;
+        margin-right: 5rem;
+    }
+}
+
+@media (min-width: 64em) {
+    .about-us {
+        margin-left: 16rem;
+        margin-right: 16rem;
+    }
+}
+
+@media(min-width: 87.5em) {
+    .about-us {
+        margin-left: 24rem;
+        margin-right: 24rem;
+    }
+  }

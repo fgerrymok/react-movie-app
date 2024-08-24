@@ -3,6 +3,7 @@ import "../styles/About.css";
 
 export default function About() {
   return (
+    <div className="main-content">
     <section className="about-us">
       <h2>About Us</h2>
       <p>Welcome to Clickflicks, your destination for discovering and exploring movies. Whether you're into blockbusters, indie gems, or international films, our platform lets you effortlessly browse and find movies that match your taste.
@@ -18,5 +19,6 @@ export default function About() {
         <img src="/bg-2.png" alt="movie reel" className="bg-2" />
       </div>
     </section>
+    </div>
   );
 }
