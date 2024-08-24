@@ -85,7 +85,8 @@ height: 100%;
       padding: 0.3rem;
       border-radius: 1rem;
       padding: 0.4rem;
-      top:4.1rem ;
+      /* top:4.1rem ; */
+      top: 23%;
       margin-left: 1.8rem;
     }
     .movie-info{
@@ -167,19 +168,28 @@ height: 100%;
 }
 @media(min-width:40em){
   .carousel-container{
-    height: 65vh;
+    height: 60vh;
    }
    .main-posters-wrapper{
-    height: 65vh;
+    height: 60vh;
+   }
+   .movie-info-wrapper{
+    top: 30%;
    }
 }
 @media(min-width:46.25em){
+  .carousel-container{
+    height: 64vh;
+   }
+   .main-posters-wrapper{
+    height: 64vh;
+   }
   .title-homepage{
     margin-top: 0.5rem;
     }
     .movie-info-wrapper{
       margin-top:0;
-      top: 11.5rem;
+      top: 35%;
     }
 }
 
@@ -188,7 +198,7 @@ height: 100%;
     margin-left: 1rem;
     z-index: 10;
     position:absolute;
-    top: 12rem;
+    top: 28%;
   }
   .title-homepage{
     font-size: 2.8rem;
@@ -198,16 +208,27 @@ height: 100%;
   }
   .carousel-container{
     position: relative;
-    height: 70vh;
+    height: 60vh;
     overflow: hidden;
    }
    .main-posters-wrapper{
     display: block;
-    height: 70vh;
+    height: 60vh;
     overflow: hidden;
    }
    .movie-info{
      width: 33rem;
+   }
+}
+@media(min-width:58em){
+  .carousel-container{
+    height: 63vh;
+   }
+   .main-posters-wrapper{
+    height: 63vh;
+   }
+   .movie-info-wrapper{
+    top: 25%;
    }
 }
 
