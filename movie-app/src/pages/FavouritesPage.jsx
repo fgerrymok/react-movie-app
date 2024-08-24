@@ -17,7 +17,7 @@ export default function Favourites() {
       <circle cx="400" cy="400" r="400" fill="#ffb525"></circle>
       <path d="M200,400l141.42,141.42,282.81-282.84" stroke="#fff" stroke-width="66.67" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
     </g>
-    </svg>)
+    </svg>) 
 
   const addToFavouritesSvg = (
     <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">

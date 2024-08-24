@@ -130,7 +130,7 @@ function Subnav() {
                 >
                   <h3 className="title">{movie.title}</h3>
                   <p className="release-date">{movie.release_date}</p>
-                  <p className="description">{createExcerpt(movie.overview, 20)}</p>
+                  <p className="description">{createExcerpt(movie.overview, 15)}</p>
                   <div className="hover-btns">
                     <Link className="more-info" to={`moviedetails/${movie.id}`}>{moreInformationSvg}</Link>
                     <button

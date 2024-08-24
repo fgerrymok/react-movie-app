@@ -97,10 +97,6 @@
   width: 2.5rem;
 }
 
-.hover-btns {
-  margin-top: 2rem;
-}
-
 
 @media (min-width: 50rem) {
 
@@ -127,6 +123,7 @@
       font-weight: 600;
       color: white;
       margin: 3rem 0 0.5rem 0;
+      padding: 0 0.3rem;
       text-align: center !important;
     }
 
@@ -141,7 +138,7 @@
     .description {
       color: white;
       font-weight: 250;
-      padding: 2rem !important;
+      padding: 1.5rem !important;
       margin: 0 auto !important;
       text-align: left;
     }
