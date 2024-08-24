@@ -37,7 +37,14 @@
   margin-top: 12rem;
   display: block;
   color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   
+}
+
+.smaller-add-to-favourites {
+  padding: 0 1rem;
 }
 
 @media (min-width: 50rem) {
@@ -78,17 +85,6 @@
       font-weight: 250;
       padding: 1rem;
       margin: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      /* number of lines to show */
-      line-clamp: 4;
-      -webkit-box-orient: vertical;
-    }
-
-    .hover-btns {
-      padding: 0.5rem;
     }
   }
 }
