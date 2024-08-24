@@ -16,9 +16,9 @@
 }
 
 .footer-menu {
-  /* background-color: #1f2135; */
   background-color: #1f2135;
   position: fixed;
+  z-index: 100;
   bottom: 0;
   width: 100%;
   z-index: 9999;
