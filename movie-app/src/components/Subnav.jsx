@@ -7,6 +7,7 @@ const API = import.meta.env.VITE_MOVIE_API_KEY;
 function Subnav() {
   const [movies, setMovies] = useState([]);
   const [category, setCategory] = useState("popular");
+  const [pageNumber, setPageNumber] = useState(1);
   const [currentHoveredMovieId, setCurrentHoveredMovieId] = useState(null);
   const [favourites, setFavourites] = useContext(Context);
   const basePosterUrl = "http://image.tmdb.org/t/p/w342";
@@ -36,7 +37,7 @@ function Subnav() {
   useEffect(() => {
     async function generateMovies() {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1&api_key=${API}`
+        `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${pageNumber}&api_key=${API}`
       );
       const data = await response.json();
       const movieData = data.results;
@@ -61,6 +62,20 @@ function Subnav() {
       });
       setFavourites(newFavourites);
     }
+  }
+
+  function loadMoreMovies() {
+    const newPageNumber = pageNumber + 1;
+    setPageNumber(newPageNumber);
+    async function displayMoreMovies() {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${newPageNumber}&api_key=${API}`
+      );
+      const data = await response.json();
+      const moreMovieData = data.results;
+      setMovies([...movies, ...moreMovieData]);
+    }
+    displayMoreMovies();
   }
 
   // From: https://medium.com/@paulohfev/problem-solving-how-to-create-an-excerpt-fdb048687928
@@ -149,6 +164,7 @@ function Subnav() {
             );
           })}
       </div>
+      <button onClick={loadMoreMovies} className="load-more-movies">Load More...</button>
     </>
   );
 }
