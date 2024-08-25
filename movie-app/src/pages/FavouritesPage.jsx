@@ -40,9 +40,18 @@ export default function Favourites() {
     });
   }
 
+  // From: https://medium.com/@paulohfev/problem-solving-how-to-create-an-excerpt-fdb048687928
+  const createExcerpt = (content, maxNumberOfWords, trailingIndicator = '...') => {
+    const listOfWords = content.trim().split(' ');
+    const truncatedContent = listOfWords.slice(0, maxNumberOfWords).join(' ');
+    const excerpt = truncatedContent + trailingIndicator;
+    const output = listOfWords.length > maxNumberOfWords ? excerpt : content;
+    return output;
+  }
+
   return (
     <div className="main-body">
-      <h2 className={Object.keys(favouritedMovies).length === 0 ? "show-message" : "hide-message"}>You have no movies on your Favorites. Add your favorite movies later by clicking {addToFavouritesSvg} Add to Favorites.</h2>
+      <h2 className={Object.keys(favouritedMovies).length === 0 ? "show-message" : "hide-message"}>You have no movies on your Favorites. Add your favorite movies later by clicking <span className="smaller-add-to-favourites">{addToFavouritesSvg}</span> Add to Favorites.</h2>;
       <div className="favourites-movie-container">
         {Object.keys(favouritedMovies).map((key) => {
           const stringifiedObject = localStorage.getItem(key);
@@ -60,7 +69,7 @@ export default function Favourites() {
               }}
             >
               <Link to={`../moviedetails/${movie.id}`}>      <img
-                src={`${basePosterUrl}${movie["poster_path"]}`}
+                src={movie.poster_path !== null ? `${basePosterUrl}${movie["poster_path"]}` : "../../public/moviecard-placeholder.jpg"}
                 alt={movie["title"]}
               /></Link>
 
@@ -73,7 +82,7 @@ export default function Favourites() {
               >
                 <h3 className="title">{movie["title"]}</h3>
                 <p className="release-date">{movie.release_date}</p>
-                <p className="description">{movie.overview}</p>
+                <p className="description">{createExcerpt(movie.overview, 15)}</p>
                 <div className="hover-btns">
                   <Link to={`../moviedetails/${movie.id}`}>{moreInformationSvg}</Link>
                   <button

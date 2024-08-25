@@ -72,7 +72,7 @@
 .movies-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+  margin-bottom: 6rem;
 }
 
 .movie-card {
@@ -95,10 +95,11 @@
 
 .more-info {
   width: 2.5rem;
+  margin-right: 0.3rem;
 }
 
-.hover-btns {
-  margin-top: 2rem;
+.favourites-button {
+  margin-left: 0.3rem;
 }
 
 
@@ -107,6 +108,7 @@
   .movies-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin-bottom: 0;
   }
 }
 
@@ -127,6 +129,7 @@
       font-weight: 600;
       color: white;
       margin: 3rem 0 0.5rem 0;
+      padding: 0 0.3rem;
       text-align: center !important;
     }
 
@@ -141,9 +144,13 @@
     .description {
       color: white;
       font-weight: 250;
-      padding: 2rem !important;
+      padding: 0rem 1.5rem !important;
       margin: 0 auto !important;
       text-align: left;
+    }
+
+    .hover-btns {
+      margin-top: 1rem;
     }
   }
 }

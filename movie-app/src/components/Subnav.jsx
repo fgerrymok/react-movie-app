@@ -107,7 +107,6 @@ function Subnav() {
       <div className="movies-container">
         {movies &&
           movies.map((movie) => {
-            const posterUrl = basePosterUrl + movie.poster_path;
             return (
               <div
                 className="movie-card"
@@ -119,7 +118,7 @@ function Subnav() {
                   setCurrentHoveredMovieId(null);
                 }}
               >
-                <Link className="more-info" to={`moviedetails/${movie.id}`}><img src={posterUrl} alt={movie.title} /></Link>
+                <Link className="more-info" to={`moviedetails/${movie.id}`}><img src={movie.poster_path !== null ? `${basePosterUrl}${movie.poster_path}` : "../../public/moviecard-placeholder.jpg"} alt={movie.title} /></Link>
 
                 <div
                   className={
@@ -130,7 +129,7 @@ function Subnav() {
                 >
                   <h3 className="title">{movie.title}</h3>
                   <p className="release-date">{movie.release_date}</p>
-                  <p className="description">{createExcerpt(movie.overview, 20)}</p>
+                  <p className="description">{createExcerpt(movie.overview, 15)}</p>
                   <div className="hover-btns">
                     <Link className="more-info" to={`moviedetails/${movie.id}`}>{moreInformationSvg}</Link>
                     <button
