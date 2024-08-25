@@ -11,10 +11,6 @@
   margin: 1rem;
 }
 
-.home-icon {
-  width: 4rem;
-}
-
 .footer-menu {
   background-color: #1f2135;
   position: fixed;
@@ -34,7 +30,7 @@
 
 
 
-@media(min-width: 50em) {
+@media(min-width: 32em) {
 
   .mobile-nav {
     display: none;
