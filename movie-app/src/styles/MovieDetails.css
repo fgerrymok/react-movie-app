@@ -43,7 +43,6 @@
   }
 
   p {
-    text-align: left;
     padding: 1rem;
     margin: 0;
   }
@@ -54,6 +53,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin: 0 1rem;
   }
 }
 
@@ -61,6 +61,7 @@
   background-color: transparent;
   border: none;
   padding-right: 1rem;
+  padding-left: 0;
 }
 
 .play-button {
@@ -71,9 +72,6 @@
 
 .movie-details-card .rating {
   text-align: center;
-  position: absolute;
-  top: 4rem;
-  left: 0.5rem;
   padding: 0.95rem 0.6rem;
   border-radius: 50%;
   background-color: #1f2135db;
@@ -81,14 +79,10 @@
 }
 
 .rating {
+  
   height: 40px;
   width: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 0.8rem;
-  text-align: center;
-  vertical-align: center;
   padding-top: 0.5rem !important;
   padding-left: 0.4rem !important;
 }
