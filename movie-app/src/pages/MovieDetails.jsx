@@ -99,7 +99,7 @@ function MovieDetails() {
           <div className="backdrop-container">
             <div className="gradient-overlay"></div>
             <img
-              src={`${baseBackdropUrl}${movie.backdrop_path}`}
+              src={ movie.backdrop_path !== null ? `${baseBackdropUrl}${movie.backdrop_path}` : "../../public/backdrop-placeholder.png"}
               alt={movie.title}
               className="movie-backdrop"
             />
