@@ -143,6 +143,7 @@ return (
       >
         {mainCarouselMovies.map((poster) => (
           <div key={poster.id} className="main-posters">
+            <div className="gradient-overlay"></div>
             <img src={`${imagePath}${poster.backdrop_path}`} alt={`main-Poster-${poster.id}`} className='main-hero-image'/>
             <div className='movie-info-wrapper'>
             <div className='movie-info'>
