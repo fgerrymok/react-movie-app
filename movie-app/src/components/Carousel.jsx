@@ -144,7 +144,7 @@ return (
         {mainCarouselMovies.map((poster) => (
           <div key={poster.id} className="main-posters">
             <div className="gradient-overlay"></div>
-            <img src={`${imagePath}${poster.backdrop_path}`} alt={`main-Poster-${poster.id}`} className='main-hero-image'/>
+            <img src={poster.backdrop_path !== null ? `${imagePath}${poster.backdrop_path}` : "../../public/backdrop-placeholder.png"} alt={`main-Poster-${poster.id}`} className='main-hero-image'/>
             <div className='movie-info-wrapper'>
             <div className='movie-info'>
              <h2 className='title-homepage'>{poster.original_title}</h2>
@@ -191,7 +191,7 @@ return (
               <Link to={`moviedetails/${movie.id}`}>
             <img
               className="top-hero-img"
-              src={`${imagePath}${movie.poster_path}`}
+              src={movie.poster_path !== null ? `${imagePath}${movie.poster_path}` : "../../public/moviecard-placeholder.jpg"}
               alt={movie.title}
             />
               </Link>
