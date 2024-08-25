@@ -9,7 +9,7 @@
     background-color: #7276a841;
     margin: 1.5rem 1.5rem 8rem 1.5rem;
     border-radius: 40px;
-    padding: 1rem;
+    padding: 2rem;
     white-space: pre-wrap;
     z-index: 50;
     position: relative;
@@ -54,6 +54,7 @@ p {
     .about-us {
         margin-left: 5rem;
         margin-right: 5rem;
+        padding: 3.5rem;
     }
 }
 

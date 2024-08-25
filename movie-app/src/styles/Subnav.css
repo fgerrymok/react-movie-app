@@ -95,6 +95,11 @@
 
 .more-info {
   width: 2.5rem;
+  margin-right: 0.3rem;
+}
+
+.favourites-button {
+  margin-left: 0.3rem;
 }
 
 

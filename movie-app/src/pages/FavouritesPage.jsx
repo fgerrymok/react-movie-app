@@ -69,7 +69,7 @@ export default function Favourites() {
               }}
             >
               <Link to={`../moviedetails/${movie.id}`}>      <img
-                src={`${basePosterUrl}${movie["poster_path"]}`}
+                src={ movie.poster_path !== null ? `${basePosterUrl}${movie["poster_path"]}` : "../../public/moviecard-placeholder.jpg"}
                 alt={movie["title"]}
               /></Link>
 

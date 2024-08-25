@@ -107,7 +107,6 @@ function Subnav() {
       <div className="movies-container">
         {movies &&
           movies.map((movie) => {
-            const posterUrl = basePosterUrl + movie.poster_path;
             return (
               <div
                 className="movie-card"
@@ -119,7 +118,7 @@ function Subnav() {
                   setCurrentHoveredMovieId(null);
                 }}
               >
-                <Link className="more-info" to={`moviedetails/${movie.id}`}><img src={posterUrl} alt={movie.title} /></Link>
+                <Link className="more-info" to={`moviedetails/${movie.id}`}><img src={movie.poster_path !== null ? `${basePosterUrl}${movie.poster_path}` : "../../public/moviecard-placeholder.jpg"} alt={movie.title} /></Link>
 
                 <div
                   className={
