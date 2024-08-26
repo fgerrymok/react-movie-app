@@ -99,21 +99,21 @@ function Subnav() {
         >
           Popular
         </button>
-        <button className="category-btn"
+        <button className={category === "top_rated" ? "page-load-style" : "category-btn"}
           onClick={() => {
             updateCategory("top_rated");
           }}
         >
           Top Rated
         </button>
-        <button className="category-btn"
+        <button className={category === "upcoming" ? "page-load-style" : "category-btn"}
           onClick={() => {
             updateCategory("upcoming");
           }}
         >
           Upcoming
         </button>
-        <button className="category-btn"
+        <button className={category === "now_playing" ? "page-load-style" : "category-btn"}
           onClick={() => {
             updateCategory("now_playing");
           }}

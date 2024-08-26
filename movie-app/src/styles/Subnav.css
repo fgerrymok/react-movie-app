@@ -18,7 +18,7 @@
   /* margin: 0 0.5rem; */
 }
 
-.category-btn:focus {
+.category-btn:focus, .category-btn:active {
   padding: 0.8rem;
   text-transform: uppercase;
   border: none;
