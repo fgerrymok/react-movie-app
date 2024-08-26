@@ -366,3 +366,12 @@
   }
 
 }
+
+
+@media(min-width:100em) {
+
+  .carousel-container .gradient-overlay {
+    background: linear-gradient(180deg, rgba(31, 32, 52, 0) 0%, rgb(31 32 52 / 0%) 38%, rgb(31 32 52 / 18%) 66%, rgb(31 32 52 / 56%) 72%);
+  }
+
+}
