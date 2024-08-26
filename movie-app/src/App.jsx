@@ -9,12 +9,13 @@ import Home from "./pages/HomePage";
 import About from "./pages/AboutPage";
 import Favourites from "./pages/FavouritesPage";
 import MovieDetails from "./pages/MovieDetails";
+// import { APP_FOLDER_NAME } from "./globals";
 
 function App() {
   const [favourites, setFavourites] = useState([]);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={`/click-flicks`}>
       <Context.Provider value={[favourites, setFavourites]}>
         <Header />
         <Routes>

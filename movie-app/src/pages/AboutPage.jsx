@@ -16,10 +16,10 @@ export default function About() {
         </p>
 
         <div className="img-bg">
-          <img src="/bg-1.png" alt="movie clapperboard" className="bg-1" />
-          <img src="/bg-2.png" alt="movie reel" className="bg-2" />
+          <img src="/click-flicks/bg-1.png" alt="movie clapperboard" className="bg-1" />
+          <img src="/click-flicks/bg-2.png" alt="movie reel" className="bg-2" />
         </div>
-        <img src="/tmdb.svg" alt="tmdb-logo" className="tmdb-logo" />
+        <img src="/click-flicks/tmdb.svg" alt="tmdb-logo" className="tmdb-logo" />
       </section>
     </div>
   );
