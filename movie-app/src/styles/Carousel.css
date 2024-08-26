@@ -26,14 +26,6 @@
   color: white;
 }
 
-
-
-
-
-
-
-
-
 .carousel-container {
   width: 100%;
 }
@@ -371,6 +363,15 @@
 
   .carousel-container .gradient-overlay {
     background: linear-gradient(180deg, rgba(31, 32, 52, 0) 0%, rgb(31 32 52 / 0%) 38%, rgb(31 32 52 / 11%) 63%, rgb(31 32 52 / 47%) 83%);
+  }
+
+}
+
+
+@media(min-width:100em) {
+
+  .carousel-container .gradient-overlay {
+    background: linear-gradient(180deg, rgba(31, 32, 52, 0) 0%, rgb(31 32 52 / 0%) 38%, rgb(31 32 52 / 18%) 66%, rgb(31 32 52 / 56%) 72%);
   }
 
 }
