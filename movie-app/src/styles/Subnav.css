@@ -33,9 +33,6 @@
   background-color: #fc4d79ab;
 }
 
-
-
-
 .movies-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -62,10 +59,6 @@
 .more-info {
   width: 2.5rem;
   margin-right: 0.3rem;
-}
-
-.favourites-button {
-  margin-left: 0.3rem;
 }
 
 .load-more-movies {

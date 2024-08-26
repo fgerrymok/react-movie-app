@@ -115,10 +115,12 @@ function MovieDetails() {
               >
                 {movieIsFavourited ? addedToFavouritesSvg : addToFavouritesSvg}
               </button>
-              <p className="rating">{`${Math.round((movie.vote_average) * 10)}%`}</p>
             </div>
             <div>
-              <h1>{movie.title}</h1>
+              <div className="title-and-rating">
+              <h1 className="movie-title">{movie.title}</h1>
+              <p className="rating">{`${Math.round((movie.vote_average) * 10)}%`}</p>
+              </div>
               <p>{movie.release_date}</p>
               <p>{movie.overview}</p>
             </div>
