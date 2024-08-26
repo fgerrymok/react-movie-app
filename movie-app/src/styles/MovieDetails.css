@@ -80,11 +80,20 @@
 
 .rating {
   
-  height: 40px;
-  width: 40px;
-  font-size: 0.8rem;
-  padding-top: 0.5rem !important;
-  padding-left: 0.4rem !important;
+  height: 50px;
+  width: 50px;
+  font-size: 1rem;
+  padding-top: 0.66rem !important;
+  padding-left: 0.48rem !important;
+}
+
+.movie-title {
+  width: fit-content !important;
+}
+
+.title-and-rating {
+  display: flex;
+  align-items: center;
 }
 
 @media(min-width:32em) {
