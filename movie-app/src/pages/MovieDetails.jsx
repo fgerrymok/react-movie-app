@@ -7,40 +7,40 @@ function MovieDetails() {
   const id = useParams().id;
   const [movie, setMovie] = useState(null);
   const [movieIsFavourited, setFavouritedState] = useState(null);
+  const endpoint = 'https://api.themoviedb.org/3/movie/';
   const baseBackdropUrl = "https://image.tmdb.org/t/p/original/";
   const basePosterUrl = "http://image.tmdb.org/t/p/w342";
   const favouritedMovies = { ...localStorage };
 
-  const notFavouritedSvg = (
-    <svg
-      clip-rule="evenodd"
-      fill-rule="evenodd"
-      stroke-linejoin="round"
-      stroke-miterlimit="2"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="m7.234 3.004c-2.652 0-5.234 1.829-5.234 5.177 0 3.725 4.345 7.727 9.303 12.54.194.189.446.283.697.283s.503-.094.697-.283c4.977-4.831 9.303-8.814 9.303-12.54 0-3.353-2.58-5.168-5.229-5.168-1.836 0-3.646.866-4.771 2.554-1.13-1.696-2.935-2.563-4.766-2.563zm0 1.5c1.99.001 3.202 1.353 4.155 2.7.14.198.368.316.611.317.243 0 .471-.117.612-.314.955-1.339 2.19-2.694 4.159-2.694 1.796 0 3.729 1.148 3.729 3.668 0 2.671-2.881 5.673-8.5 11.127-5.454-5.285-8.5-8.389-8.5-11.127 0-1.125.389-2.069 1.124-2.727.673-.604 1.625-.95 2.61-.95z"
-        fill-rule="nonzero"
-      />
-    </svg>
-  );
-  const favouritedSvg = (
-    <svg
-      clip-rule="evenodd"
-      fill-rule="evenodd"
-      stroke-linejoin="round"
-      stroke-miterlimit="2"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="m12 5.72c-2.624-4.517-10-3.198-10 2.461 0 3.725 4.345 7.727 9.303 12.54.194.189.446.283.697.283s.503-.094.697-.283c4.977-4.831 9.303-8.814 9.303-12.54 0-5.678-7.396-6.944-10-2.461z"
-        fill-rule="nonzero"
-      />
-    </svg>
-  );
+  const addToFavouritesSvg = (
+    <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <circle cx="400" cy="400" r="400" fill="#D3D3DD" opacity="0.5"></circle>
+        <path d="M200,400h200M400,400h200M400,400v200M400,400V200" stroke="#FFFFFF" stroke-width="66.6667" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="133.3333" fill="none"></path>
+      </g>
+    </svg>)
+
+  const addedToFavouritesSvg = (
+    <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <circle cx="400" cy="400" r="400" fill="#ffb525"></circle>
+        <path d="M200,400l141.42,141.42,282.81-282.84" stroke="#fff" stroke-width="66.67" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+      </g>
+    </svg>)
+
+  const play = (
+    <svg className="more-info" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+      <g id="SVGRepo_iconCarrier">
+        <polygon points="292.8,229.6 292.8,555.9 598.4,392.8" fill="#FFFFFF"></polygon>
+        <path d="M400,0.6C179.1,0.6,0,179.4,0,400s179.1,399.4,400,399.4S800,620.6,800,400S620.9,0.6,400,0.6z M288.3,229.6l305.7,163.2L288.3,555.9V229.6z" fill="#FC4A78"></path>
+      </g>
+    </svg>)
 
   useEffect(() => {
     async function getMovie() {
@@ -48,6 +48,7 @@ function MovieDetails() {
         `https://api.themoviedb.org/3/movie/${id}?api_key=${API}`
       );
       const movieData = await response.json();
+      console.log(movieData);
       setMovie(movieData);
     }
     getMovie();
@@ -63,6 +64,24 @@ function MovieDetails() {
     setFavouritedState(true);
   }
 
+  // function to make the url for trailer
+  const openTrailer = async (movieId) => {
+    try {
+      const response = await fetch(`${endpoint}${movieId}/videos?api_key=${API}`);
+      const json = await response.json();
+      console.log(json.results);
+      const trailers = json.results.filter(video => video.type === 'Trailer' && video.site === 'YouTube');
+      if (trailers.length > 0) {
+        const trailerUrl = `https://www.youtube.com/watch?v=${trailers[0].key}`;
+        window.open(trailerUrl, '_blank');
+      } else {
+        console.log('No trailer was found for this movie.');
+      }
+    } catch (error) {
+      console.log('Error fetching trailer:', error);
+    }
+  };
+
   function toggleFavourites(movie) {
     if (localStorage.getItem(movie.id) === null) {
       localStorage.setItem(movie.id, JSON.stringify(movie));
@@ -77,27 +96,32 @@ function MovieDetails() {
     <div className="movie-details-card">
       {movie && (
         <>
-          <img
-            src={`${baseBackdropUrl}${movie.backdrop_path}`}
-            alt={movie.title}
-            className="movie-backdrop"
-          />
-          <div className="movie-details-content">
+          <div className="backdrop-container">
+            <div className="gradient-overlay"></div>
             <img
-              src={`${basePosterUrl}${movie.poster_path}`}
+              src={ movie.backdrop_path !== null ? `${baseBackdropUrl}${movie.backdrop_path}` : "../../public/backdrop-placeholder.png"}
               alt={movie.title}
+              className="movie-backdrop"
             />
-            <div>
+          </div>
+          <div className="movie-details-content">
+            <div className="favourites-and-play">
+              <button className="play-button" onClick={() => openTrailer(movie.id)}>{play}</button>
               <button
                 onClick={() => {
                   toggleFavourites(movie);
                 }}
                 className="favourites-button"
               >
-                {movieIsFavourited ? favouritedSvg : notFavouritedSvg}
+                {movieIsFavourited ? addedToFavouritesSvg : addToFavouritesSvg}
               </button>
-              <h1>{movie.title}</h1>
-              <h2>Release Date: {movie.release_date}</h2>
+            </div>
+            <div>
+              <div className="title-and-rating">
+              <h1 className="movie-title">{movie.title}</h1>
+              <p className="rating">{`${Math.round((movie.vote_average) * 10)}%`}</p>
+              </div>
+              <p>{movie.release_date}</p>
               <p>{movie.overview}</p>
             </div>
           </div>

@@ -1,0 +1,135 @@
+.main-content {
+    overflow: hidden;
+    min-height: 89.4vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-us {
+    background-color: #7276a841;
+    margin: 1.5rem 1.5rem 8rem 1.5rem;
+    border-radius: 40px;
+    padding: 2rem;
+    white-space: pre-wrap;
+    z-index: 50;
+    position: relative;
+}
+
+h2,
+p {
+    color: white;
+    font-weight: 250;
+    line-height: 1.5;
+}
+
+p {
+    text-align: left;
+}
+
+.tmdb-logo {
+    width: 5rem;
+    margin: 1rem;
+}
+
+.img-bg {
+    opacity: 0.20;
+    z-index: 40;
+}
+
+.bg-1 {
+    transform: rotate(-20deg);
+    position: absolute;
+    bottom: 1rem;
+}
+
+.bg-2 {
+    position: absolute;
+    top: 10px;
+    left: -7rem;
+
+}
+
+@media (min-width: 31.25em) {
+    .about-us {
+        margin-top: 10rem;
+    }
+
+    .tmdb-logo {
+        width: 6rem;
+    }
+
+    .bg-1 {
+        bottom: 1rem;
+        right: -3rem;
+    }
+
+    .bg-2 {
+        top: 10px;
+        left: -4rem;
+
+    }
+
+}
+
+@media (min-width: 50em) {
+    .about-us {
+        margin-left: 5rem;
+        margin-right: 5rem;
+        padding: 3.5rem;
+    }
+
+    .tmdb-logo {
+        width: 8rem;
+    }
+
+    .bg-1 {
+        bottom: -7rem;
+        right: -8rem;
+        width: 23rem;
+    }
+
+    .bg-2 {
+        left: -8rem;
+        width: 23rem;
+
+    }
+}
+
+@media (min-width: 64em) {
+    .about-us {
+        margin-left: 16rem;
+        margin-right: 16rem;
+    }
+
+    .bg-1 {
+        bottom: -7rem;
+        right: -19rem;
+    }
+
+    .bg-2 {
+        left: -19rem;
+        top: 4rem;
+
+
+    }
+}
+
+@media(min-width: 87.5em) {
+    .about-us {
+        margin-left: 24rem;
+        margin-right: 24rem;
+    }
+
+    .bg-1 {
+        right: -27rem;
+        width: 25rem;
+    }
+
+    .bg-2 {
+        left: -27rem;
+        top: 7rem;
+        width: 25rem;
+
+
+    }
+}
