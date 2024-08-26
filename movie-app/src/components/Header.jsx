@@ -26,7 +26,7 @@ function Header() {
       </div>
       <nav className={navBG ? 'navBar active' : 'navBar'}>
         <div>
-          <Link to="/"><img src="/clickflicks.png" alt="click flicks logo" className="logo" /></Link>
+          <Link to="/"><img src={`/click-flicks/logo.svg`} alt="click flicks logo" className="logo"/></Link>
         </div>
         <ul className="main-nav">
           <li className="nav-item">

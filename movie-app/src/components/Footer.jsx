@@ -21,7 +21,7 @@ function Footer() {
   return (
     <footer>
       <div className="footer-logo">
-        <Link to="/"><img src="/clickflicks.png" alt="click flicks logo" className="footer-logo" /></Link>
+        <Link to="/"><img src="/click-flicks/clickflicks.png" alt="click flicks logo" className="footer-logo" /></Link>
       </div>
 
       <nav className="footer-menu">
